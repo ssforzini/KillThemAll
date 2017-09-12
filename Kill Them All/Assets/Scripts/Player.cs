@@ -36,10 +36,10 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision col){
+	/*void OnCollisionEnter(Collision col){
 		if(col.gameObject.tag == "Enemies"){
 			col.gameObject.GetComponent<SimpleEnemy> ().takeLife (damage);
 		}
 		Destroy (gameObject);
-	}                                                                                                   
+	}*/
 }

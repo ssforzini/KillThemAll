@@ -9,13 +9,14 @@ public class Enemy : MonoBehaviour {
 	private int defense;
 	private float velocity;
 	private NavMeshAgent agent;
-	public Transform target;
+	private Transform target;
 
 	void Awake(){
 	}
 
 	void Start(){
-		agent = GetComponent<NavMeshAgent> ();		
+		target = GameObject.Find ("Player").transform;
+		agent = GetComponent<NavMeshAgent> ();
 	}
 
 	// Update is called once per frame
