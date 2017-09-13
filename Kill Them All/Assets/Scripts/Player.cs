@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -37,6 +36,9 @@ public class Player : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
             }
+			if(Input.GetKeyDown(KeyCode.Escape)){
+				SceneManager.LoadScene ("Main Menu");
+			}
         }
 		
 
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour {
             life -= enemyAtack;
             if (life < 0) {
                 mr.enabled = false;
-                //Destroy(gameObject);
+				SceneManager.LoadScene ("Main Menu");
             }
         }
 	}

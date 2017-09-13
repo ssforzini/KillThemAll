@@ -11,11 +11,13 @@ public class Enemy : MonoBehaviour {
     private int atack;
 	private NavMeshAgent agent;
 	private Transform target;
+	private RespawnManager rm; 
 
 	void Awake(){
 	}
 
 	void Start(){
+		rm = GameObject.Find("RespawnManager").GetComponent<RespawnManager> ();
 		target = GameObject.Find ("Player").transform;
 		agent = GetComponent<NavMeshAgent> ();
 	}
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour {
     public void takeLife(int damage){
 		life -= damage;
 		if(life <= 0){
+			rm.enemyCountDecrease ();
 			Destroy (gameObject);
 		}
 	}
