@@ -9,6 +9,7 @@ public class SimpleEnemy : Enemy {
 		setLife (50);
 		setVelocity (10);
 		setDefense (0);
+        setAtack(5);
 	}
 
 

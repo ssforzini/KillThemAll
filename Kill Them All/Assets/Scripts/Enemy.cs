@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 	private int life;
 	private int defense;
 	private float velocity;
+    private int atack;
 	private NavMeshAgent agent;
 	private Transform target;
 
@@ -33,7 +34,10 @@ public class Enemy : MonoBehaviour {
 	protected float getDefense(){ return defense; }
 	protected void setDefense(int _defense){ defense = _defense; }
 
-	public void takeLife(int damage){
+    public int getAtack() { return atack; }
+    protected void setAtack(int _atack) { atack = _atack; }
+
+    public void takeLife(int damage){
 		life -= damage;
 		if(life <= 0){
 			Destroy (gameObject);
