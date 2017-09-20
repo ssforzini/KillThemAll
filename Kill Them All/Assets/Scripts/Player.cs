@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -11,12 +12,18 @@ public class Player : MonoBehaviour {
 	private int life = 50;
 	public GameObject prefab;
 	public Transform puntoSalida;
+    private int score = 0;
+    private Text txt;
+    private Slider sl;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		rb = GetComponent<Rigidbody> ();
         mr = GetComponent<MeshRenderer>();
-	}
+        txt = GameObject.Find("Score").GetComponent<Text>();
+        sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
+        txt.text = score.ToString();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,10 +58,16 @@ public class Player : MonoBehaviour {
 		if(col.gameObject.tag == "Enemies"){
             int enemyAtack = col.gameObject.GetComponent<SimpleEnemy>().getAtack();
             life -= enemyAtack;
+            sl.value = life;
             if (life < 0) {
                 mr.enabled = false;
 				SceneManager.LoadScene ("Main Menu");
             }
         }
 	}
+
+    public void addScore(int _score) {
+        score += _score;
+        txt.text = score.ToString();
+    }
 }

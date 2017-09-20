@@ -9,16 +9,21 @@ public class Enemy : MonoBehaviour {
 	private int defense;
 	private float velocity;
     private int atack;
+    private int selfScore;
 	private NavMeshAgent agent;
 	private Transform target;
-	private RespawnManager rm; 
+	private RespawnManager rm;
+    private GameObject pl;
+    private Player player;
 
 	void Awake(){
 	}
 
 	void Start(){
 		rm = GameObject.Find("RespawnManager").GetComponent<RespawnManager> ();
-		target = GameObject.Find ("Player").transform;
+        pl = GameObject.Find("Player");
+        player = pl.GetComponent<Player>();
+        target = pl.transform;
 		agent = GetComponent<NavMeshAgent> ();
 	}
 
@@ -33,8 +38,11 @@ public class Enemy : MonoBehaviour {
 	protected float getVelocity(){ return velocity; }
 	protected void setVelocity(float _velocity){ velocity = _velocity; }
 
-	protected float getDefense(){ return defense; }
+	protected int getDefense(){ return defense; }
 	protected void setDefense(int _defense){ defense = _defense; }
+
+    protected int getSelfScore() { return selfScore; }
+    protected void setSelfScore(int _selfScore) { selfScore = _selfScore; }
 
     public int getAtack() { return atack; }
     protected void setAtack(int _atack) { atack = _atack; }
@@ -42,6 +50,7 @@ public class Enemy : MonoBehaviour {
     public void takeLife(int damage){
 		life -= damage;
 		if(life <= 0){
+            player.addScore(selfScore);
 			rm.enemyCountDecrease ();
 			Destroy (gameObject);
 		}

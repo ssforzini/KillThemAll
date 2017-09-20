@@ -10,7 +10,6 @@ public class SimpleEnemy : Enemy {
 		setVelocity (10);
 		setDefense (0);
         setAtack(5);
+        setSelfScore(15);
 	}
-
-
 }
