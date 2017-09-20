@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col){
 		if(col.gameObject.tag == "Enemies"){
-			col.gameObject.GetComponent<SimpleEnemy> ().takeLife (damage);
+			col.gameObject.GetComponent<Enemy> ().takeLife (damage);
 		}
 		Destroy (gameObject);
 	}

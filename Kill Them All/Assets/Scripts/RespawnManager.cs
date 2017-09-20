@@ -10,7 +10,9 @@ public class RespawnManager : MonoBehaviour {
     private int addingEnemies = 0;
 	private int wave = 1;
     private GameObject spawnPoint;
-    public GameObject prefab;
+	public GameObject prefabSimpleEnemy;
+	public GameObject prefabFastEnemy;
+	public GameObject prefabBigEnemy;
 	[HideInInspector]
 	public int enemyCount;
     private Text txt;
@@ -50,7 +52,14 @@ public class RespawnManager : MonoBehaviour {
 		enemyCount = initialEnemies + addingEnemies;
         for (int f = 0; f < (initialEnemies + addingEnemies); f++) {
             spawnPoint = points[Random.Range(0, points.Count)];
-            Instantiate(prefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+			if(Random.Range(0, points.Count) % 7 == 0){
+				Instantiate(prefabFastEnemy, spawnPoint.transform.position, spawnPoint.transform.rotation);
+			} else if(Random.Range(0, points.Count) % 9 == 0){
+				Instantiate(prefabBigEnemy, spawnPoint.transform.position, spawnPoint.transform.rotation);
+			} else {
+				Instantiate(prefabSimpleEnemy, spawnPoint.transform.position, spawnPoint.transform.rotation);
+			}
+
         }
     }
 

@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col){
 		if(col.gameObject.tag == "Enemies"){
-            int enemyAtack = col.gameObject.GetComponent<SimpleEnemy>().getAtack();
+			int enemyAtack = col.gameObject.GetComponent<Enemy>().getAtack();
             life -= enemyAtack;
             sl.value = life;
             if (life < 0) {

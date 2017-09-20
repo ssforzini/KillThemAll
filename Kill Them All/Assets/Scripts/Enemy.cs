@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour {
         player = pl.GetComponent<Player>();
         target = pl.transform;
 		agent = GetComponent<NavMeshAgent> ();
+		agent.speed = velocity;
+		agent.acceleration = velocity - 20f;
 	}
 
 	// Update is called once per frame

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleEnemy : Enemy {
+public class BigEnemy : Enemy {
 
 	// Use this for initialization
 	void Awake () {
-		setLife (50);
-		setVelocity (45);
+		setLife (350);
+		setVelocity (30);
 		setDefense (0);
-        setAtack(5);
-        setSelfScore(15);
+		setAtack(30);
+		setSelfScore(100);
 	}
 }
