@@ -10,11 +10,18 @@ public class Player : MonoBehaviour {
 	[SerializeField]private float movementSpeed;
 	[SerializeField]private float rotationSpeed;
 	private int life = 50;
+	public GameObject gun;
+	public GameObject uzi;
 	public GameObject prefab;
+	public GameObject gunPrefab;
+	public GameObject uziPrefab;
+	public Transform gunPoint;
 	public Transform puntoSalida;
     private int score = 0;
     private Text txt;
     private Slider sl;
+
+	private int actualGun = 1;
 
     // Use this for initialization
     void Start () {
@@ -23,6 +30,8 @@ public class Player : MonoBehaviour {
         txt = GameObject.Find("Score").GetComponent<Text>();
         sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
         txt.text = score.ToString();
+		changeWeaponPrefab ();
+
     }
 	
 	// Update is called once per frame
@@ -40,12 +49,16 @@ public class Player : MonoBehaviour {
             if (Input.GetKey(KeyCode.RightArrow)) {
                 transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
             }
-            if (Input.GetKeyDown(KeyCode.Space)) {
+			if (Input.GetKeyDown(KeyCode.Space) && actualGun == 1) {
                 Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
             }
+			if (Input.GetKey(KeyCode.Space) && actualGun == 2) {
+				Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
+			}
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				SceneManager.LoadScene ("Main Menu");
 			}
+			selectWeapon ();
         }
 		
 
@@ -70,4 +83,31 @@ public class Player : MonoBehaviour {
         score += _score;
         txt.text = score.ToString();
     }
+
+	public void winLife(int _life){
+		life += _life;
+		if(life > 50){
+			life = 50;
+		}
+		sl.value = life;
+	}
+
+	private void selectWeapon(){
+		if(Input.GetKeyDown(KeyCode.Alpha1)){
+			actualGun = 1;
+		} else if(Input.GetKeyDown(KeyCode.Alpha2)){
+			actualGun = 2;
+		}
+		changeWeaponPrefab ();
+	}
+
+	private void changeWeaponPrefab(){
+		if (actualGun == 1) {
+			uzi.SetActive (false);
+			gun.SetActive (true);
+		} else {
+			uzi.SetActive (true);
+			gun.SetActive (false);
+		}
+	}
 }
