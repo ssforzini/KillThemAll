@@ -7,8 +7,8 @@ public class RespawnManager : MonoBehaviour {
 
     private List<GameObject> points = new List<GameObject>();
     public int initialEnemies;
-    private int addingEnemies = 20;
-	private int wave = 10;
+    private int addingEnemies = 0;
+	private int wave = 1;
     private GameObject spawnPoint;
 	public GameObject prefabSimpleEnemy;
 	public GameObject prefabFastEnemy;

@@ -4387,7 +4387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e7a3b5ed4d8f341a4a2a66240d307c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialEnemies: 10
+  initialEnemies: 0
   prefabSimpleEnemy: {fileID: 1101247732015630, guid: 02f08414df0bac947b61bb5f745e89f3,
     type: 2}
   prefabFastEnemy: {fileID: 1698859387491350, guid: 8473cf7158f78ab4488455912fd03ac9,
