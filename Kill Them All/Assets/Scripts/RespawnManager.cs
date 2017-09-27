@@ -20,9 +20,9 @@ public class RespawnManager : MonoBehaviour {
     private Text txt;
     private float timeText = 0f;
 
-	private int fastEnemyWaveAppearence = 10;
+	private int fastEnemyWaveAppearence = 5;
 	private int fastEnemyRest = 7;
-	private int bigEnemyWaveAppearence = 20;
+	private int bigEnemyWaveAppearence = 15;
 	private int bigEnemyRest = 9;
 
     // Use this for initialization
