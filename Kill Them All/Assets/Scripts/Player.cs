@@ -37,22 +37,17 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (mr.enabled) {
-            if (Input.GetKey(KeyCode.UpArrow)) {
-                transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
-            }
-            if (Input.GetKey(KeyCode.DownArrow)) {
-                transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
-            }
-            if (Input.GetKey(KeyCode.LeftArrow)) {
-                transform.Rotate(Vector3.down * Time.deltaTime * rotationSpeed);
-            }
-            if (Input.GetKey(KeyCode.RightArrow)) {
-                transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
-            }
-			if (Input.GetKeyDown(KeyCode.Space) && actualGun == 1) {
+
+            float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+
+            transform.Translate(Vector3.back * Time.deltaTime * vertical * movementSpeed);
+            transform.Rotate(Vector3.up * Time.deltaTime * horizontal * rotationSpeed);
+
+			if (Input.GetButtonDown("Fire") && actualGun == 1) {
                 Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
             }
-			if (Input.GetKey(KeyCode.Space) && actualGun == 2) {
+			if (Input.GetButton("Fire") && actualGun == 2) {
 				Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
 			}
 			if(Input.GetKeyDown(KeyCode.Escape)){

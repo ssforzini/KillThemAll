@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	void PlayClick(){
-		SceneManager.LoadScene ("Scene");
+		SceneManager.LoadScene ("Levels");
 	}
 
 	void ExitClick(){

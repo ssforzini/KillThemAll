@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -185,10 +185,10 @@ RectTransform:
   m_Father: {fileID: 1724394412}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.02960249, y: 0.07346013}
-  m_AnchorMax: {x: 0.231735, y: 0.21474232}
-  m_AnchoredPosition: {x: 0.5, y: -1}
-  m_SizeDelta: {x: -4, y: 4}
+  m_AnchorMin: {x: 0.077486, y: 0.07346013}
+  m_AnchorMax: {x: 0.27032712, y: 0.23314722}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: 4, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642734888
 MonoBehaviour:
@@ -531,10 +531,10 @@ RectTransform:
   m_Father: {fileID: 1724394412}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.666265, y: 0.07346013}
-  m_AnchorMax: {x: 0.86853, y: 0.21474232}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -4, y: 4}
+  m_AnchorMin: {x: 0.73300004, y: 0.07346013}
+  m_AnchorMax: {x: 0.9303271, y: 0.23314722}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1682122502
 GameObject:

@@ -20,14 +20,12 @@ public class RespawnManager : MonoBehaviour {
     private Text txt;
     private float timeText = 0f;
 
-	private int fastEnemyWaveAppearence = 10;
+	private int fastEnemyWaveAppearence = 5;
 	private int fastEnemyRest = 7;
-	private int bigEnemyWaveAppearence = 20;
-	private int bigEnemyRest = 9;
+	private int bigEnemyWaveAppearence = 20;	private int bigEnemyRest = 9;
 
     // Use this for initialization
-    void Start () {
-
+	void Start () {
         for (int i = 0; i < GameObject.Find("SpawnPlaces").transform.childCount; i++) {
             GameObject go = GameObject.Find("SpawnPlaces").transform.GetChild(i).gameObject;
             points.Add(go);
@@ -86,19 +84,19 @@ public class RespawnManager : MonoBehaviour {
 
 	public void changeEnemyRest(int _wave){
 		switch (_wave) {
-		case 25:
+		case 20:
 			bigEnemyRest = 8;
 			fastEnemyRest = 6;
 		break;
-		case 30:
+		case 25:
 			bigEnemyRest = 7;
 			fastEnemyRest = 4;
 		break;
-		case 35:
+		case 30:
 			bigEnemyRest = 6;
 			fastEnemyRest = 3;
 		break;
-		case 45:
+		case 35:
 			bigEnemyRest = 4;
 			fastEnemyRest = 2;
 		break;
