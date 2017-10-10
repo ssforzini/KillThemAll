@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Game Scenes/Scene.unity
   - enabled: 1
     path: Assets/Game Scenes/Scene2.unity
+  - enabled: 1
+    path: Assets/Game Scenes/Scene3.unity
