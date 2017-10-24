@@ -4,34 +4,26 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-	private Rigidbody rb;
+	//private Rigidbody rb;
     private MeshRenderer mr;
 
 	[SerializeField]private float movementSpeed;
 	[SerializeField]private float rotationSpeed;
 	private int life = 50;
-	public GameObject gun;
-	public GameObject uzi;
-	public GameObject prefab;
-	public GameObject gunPrefab;
-	public GameObject uziPrefab;
-	public Transform gunPoint;
-	public Transform puntoSalida;
+
+	public WeaponManager wmanager;
+
     private int score = 0;
     private Text txt;
     private Slider sl;
 
-	private int actualGun = 1;
-
     // Use this for initialization
     void Start () {
-		rb = GetComponent<Rigidbody> ();
+		//rb = GetComponent<Rigidbody> ();
         mr = GetComponent<MeshRenderer>();
         txt = GameObject.Find("Score").GetComponent<Text>();
         sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
         txt.text = score.ToString();
-		changeWeaponPrefab ();
-
     }
 	
 	// Update is called once per frame
@@ -44,22 +36,20 @@ public class Player : MonoBehaviour {
             transform.Translate(Vector3.back * Time.deltaTime * vertical * movementSpeed);
             transform.Rotate(Vector3.up * Time.deltaTime * horizontal * rotationSpeed);
 
-			if (Input.GetButtonDown("Fire") && actualGun == 1) {
-                Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
-            }
-			if (Input.GetButton("Fire") && actualGun == 2) {
+
+			/*if ((Input.GetButton("Fire") && actualGun == 2) && /*uziFire 0 <= 0) {
 				Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
-			}
+                /*uziFire = 0.15f;
+			}*/
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				SceneManager.LoadScene ("Main Menu");
 			}
-			selectWeapon ();
         }
-		
 
         if (life < 0) {
             mr.enabled = false;
         }
+
 	}
 
 	void OnCollisionEnter(Collision col){
@@ -85,24 +75,5 @@ public class Player : MonoBehaviour {
 			life = 50;
 		}
 		sl.value = life;
-	}
-
-	private void selectWeapon(){
-		if(Input.GetKeyDown(KeyCode.Alpha1)){
-			actualGun = 1;
-		} else if(Input.GetKeyDown(KeyCode.Alpha2)){
-			actualGun = 2;
-		}
-		changeWeaponPrefab ();
-	}
-
-	private void changeWeaponPrefab(){
-		if (actualGun == 1) {
-			uzi.SetActive (false);
-			gun.SetActive (true);
-		} else {
-			uzi.SetActive (true);
-			gun.SetActive (false);
-		}
 	}
 }
