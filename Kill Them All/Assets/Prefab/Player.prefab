@@ -770,7 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 0
   infiniteAmmo: 0
-  fireVelocity: 0.7
+  fireVelocity: 0.4
   type: 0
   fireActive: 0
 --- !u!114 &114672055495085526

@@ -36,11 +36,6 @@ public class Player : MonoBehaviour {
             transform.Translate(Vector3.back * Time.deltaTime * vertical * movementSpeed);
             transform.Rotate(Vector3.up * Time.deltaTime * horizontal * rotationSpeed);
 
-
-			/*if ((Input.GetButton("Fire") && actualGun == 2) && /*uziFire 0 <= 0) {
-				Instantiate(prefab, puntoSalida.position, puntoSalida.rotation);
-                /*uziFire = 0.15f;
-			}*/
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				SceneManager.LoadScene ("Main Menu");
 			}
