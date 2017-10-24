@@ -15,6 +15,10 @@ public class RespawnManager : MonoBehaviour {
 	public GameObject prefabBigEnemy;
 	public GameObject medicBoxPrefab;
 	public GameObject[] medicBoxes;
+	public GameObject[] weaponGrab;
+
+	public GameObject[] weaponsPrefab;
+
 	[HideInInspector]
 	public int enemyCount;
     private Text txt;
@@ -57,7 +61,10 @@ public class RespawnManager : MonoBehaviour {
     public void instantiateEnemies() {
 		if (wave % 2 == 0) {
 			GameObject medicBoxesPoint = medicBoxes [Random.Range (0, medicBoxes.Length)];
-			Instantiate(medicBoxPrefab, medicBoxesPoint.transform.position, medicBoxesPoint.transform.rotation);
+			Instantiate (medicBoxPrefab, medicBoxesPoint.transform.position, medicBoxesPoint.transform.rotation);
+		} else {
+			GameObject weaponGrabPoint = weaponGrab [Random.Range (0, weaponGrab.Length)];
+			Instantiate (weaponsPrefab[Random.Range(0,weaponsPrefab.Length)], weaponGrabPoint.transform.position, weaponGrabPoint.transform.rotation);
 		}
 		enemyCount = initialEnemies + addingEnemies;
         for (int f = 0; f < (initialEnemies + addingEnemies); f++) {

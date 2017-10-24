@@ -13,7 +13,7 @@ public class WeaponManager : MonoBehaviour {
 
 	private int actualAmmo = 0;
 	private bool isInfiniteAmmo = true;
-	private float fireVelocity = 0.4f;
+	private float fireVelocity;
 
 	private Text ammoText;
 
@@ -23,6 +23,7 @@ public class WeaponManager : MonoBehaviour {
 		for(int i = 0; i < weapons.Length; i++){
 			wpScrip [i] = weapons [i].gameObject.GetComponent<Weapon> ();
 		}
+		fireVelocity = wpScrip [activeWeapon].fireVelocity;
 	}
 
 	void Update(){
@@ -50,7 +51,7 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-
+		
 		if(col.gameObject.tag == "Weapon"){
 			activeWeapon = col.gameObject.GetComponent<WeaponGrab> ().getWType ();	
 			changeWeaponStats (col.gameObject.GetComponent<Weapon> ());
