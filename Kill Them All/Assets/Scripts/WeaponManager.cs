@@ -5,15 +5,16 @@ public class WeaponManager : MonoBehaviour {
 	private int activeWeapon = 0;
 	public GameObject[] weapons;
 	private Weapon[] wpScrip = {null,null,null};
-	private float uziFire = 0;
-	private float gunFire = 0;
+	private float weaponTime = 0;
 
 	public GameObject bullet;
 	public Transform puntoSalida;
+    public Transform floorSalida;
 
 	private int actualAmmo = 0;
 	private bool isInfiniteAmmo = true;
 	private float fireVelocity;
+    private GameObject actualPrefab;
 
 	private Text ammoText;
 
@@ -27,27 +28,31 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 	void Update(){
-		uziFire -= Time.deltaTime;
-		gunFire -= Time.deltaTime;
+		weaponTime -= Time.deltaTime;
 		fire ();
 	}
 
 	public void fire(){
-		if (Input.GetButtonDown ("Fire")) {
-			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 0) && gunFire <= 0){
+        if (Input.GetButtonDown ("Fire")) {
+			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 0) && weaponTime <= 0){
 				Instantiate (bullet, puntoSalida.position, puntoSalida.rotation);
-				gunFire = fireVelocity;
 				loseAmmo ();
-			}
-		} 
+                weaponTime = fireVelocity;
+            }
+            if ((wpScrip[activeWeapon].type.ToString() == "floor" && activeWeapon == 2) && weaponTime <= 0) {
+                Instantiate(actualPrefab, floorSalida.position, floorSalida.rotation);
+                weaponTime = fireVelocity;
+                loseAmmo();
+            }
+        } 
 
 		if (Input.GetButton("Fire")) {
-			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 1) && uziFire <= 0){
+			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 1) && weaponTime <= 0){
 				Instantiate(bullet, puntoSalida.position, puntoSalida.rotation);
-				uziFire = fireVelocity;
 				loseAmmo ();
-			}
-		}
+                weaponTime = fireVelocity;
+            }
+        }
 	}
 
 	void OnTriggerEnter(Collider col) {
@@ -74,7 +79,8 @@ public class WeaponManager : MonoBehaviour {
 	public void changeWeaponStats(Weapon wp){
 		actualAmmo = wp.ammo;
 		fireVelocity = wp.fireVelocity;
-		if ((int)wp.infiniteAmmo == 0) {
+        actualPrefab = wp.weaponPrefab;
+        if ((int)wp.infiniteAmmo == 0) {
 			isInfiniteAmmo = true;
 		} else {
 			isInfiniteAmmo = false;

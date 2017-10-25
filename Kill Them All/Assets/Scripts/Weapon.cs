@@ -17,5 +17,6 @@ public class Weapon : MonoBehaviour {
     public float fireVelocity;
     public fType type;
     public Active fireActive;
-
+    public GameObject weaponPrefab;
+    
 }

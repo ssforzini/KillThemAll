@@ -321,3 +321,4 @@ MonoBehaviour:
   fireVelocity: 0.7
   type: 0
   fireActive: 0
+  weaponPrefab: {fileID: 1326680641771720}

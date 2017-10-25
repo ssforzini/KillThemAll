@@ -11,8 +11,6 @@ public class Player : MonoBehaviour {
 	[SerializeField]private float rotationSpeed;
 	private int life = 50;
 
-	public WeaponManager wmanager;
-
     private int score = 0;
     private Text txt;
     private Slider sl;
