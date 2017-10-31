@@ -5,14 +5,20 @@ using UnityEngine;
 public class FloorExplosion : MonoBehaviour {
 
     private Rigidbody rb;
+	private GameObject prc;
 
-	private float power = 10.0f;
-	private float radius = 5.0f;
-	private float upForce = 1.0f;
+	private int damage = 100;
+	private float power = 10000.0f;
+	private float radius = 40.0f;
+	private float upForce = 100.0f;
 
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
+
+		foreach (Transform t in transform) {
+			prc = t.gameObject;
+		}
 	}
 	
 	// Update is called once per frame
@@ -30,11 +36,16 @@ public class FloorExplosion : MonoBehaviour {
 		Vector3 explosionPosition = gameObject.transform.position;
 		Collider[] colliders = Physics.OverlapSphere (explosionPosition,radius);
 		foreach(Collider hit in colliders){
-			Debug.Log (hit.gameObject.name);
-			Rigidbody rig = hit.GetComponent<Rigidbody> ();
-			if(rig != null){
-				rig.AddExplosionForce (power,explosionPosition,radius,upForce,ForceMode.Impulse);
+			if(hit.gameObject.tag == "Enemies"){
+				prc.SetActive (true);
+				hit.GetComponent<Enemy> ().takeLife (damage);
 			}
 		}
+
+		Invoke ("DestroyAfterFive",5);
+	}
+
+	void DestroyAfterFive(){
+		Destroy (gameObject);
 	}
 }

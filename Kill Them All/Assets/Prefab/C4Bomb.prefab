@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49f0f7dca65f854ab4fc48ca7f2d938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 10
+  ammo: 5
   infiniteAmmo: 1
   fireVelocity: 0.2
   type: 1
   fireActive: 1
+  weaponPrefab: {fileID: 0}
