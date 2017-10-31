@@ -2958,7 +2958,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4306088874122602, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.105
+      value: -0.486
       objectReference: {fileID: 0}
     - target: {fileID: 114282514685402476, guid: c739ce74ee109884dac2d3d126568367,
         type: 2}
@@ -2978,7 +2978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4306088874122602, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.589
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1396809317311846, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_IsActive
@@ -3003,6 +3003,10 @@ Prefab:
     - target: {fileID: 4997485651326116, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306088874122602, guid: c739ce74ee109884dac2d3d126568367, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c739ce74ee109884dac2d3d126568367, type: 2}
@@ -4712,6 +4716,7 @@ MonoBehaviour:
   - {fileID: 257615694}
   weaponsPrefab:
   - {fileID: 1423216232533110, guid: 690381982dbc2204686c2e4ce5f4cc02, type: 2}
+  - {fileID: 1314441378593982, guid: 1af29b095d4208242849342e89d53d68, type: 2}
   enemyCount: 0
 --- !u!4 &1347956916
 Transform:
