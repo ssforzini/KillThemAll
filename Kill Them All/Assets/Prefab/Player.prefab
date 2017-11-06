@@ -200,6 +200,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1971889669178182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4932283353211368}
+  - component: {fileID: 114302949856123842}
+  m_Layer: 0
+  m_Name: HighscorePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1973468409566366
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +269,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396809317311846}
-  m_LocalRotation: {x: -0, y: -0.0021169719, z: -0, w: 0.9999978}
+  m_LocalRotation: {x: -0, y: -0.002116972, z: -0, w: 0.9999978}
   m_LocalPosition: {x: -45.17267, y: 10.165322, z: 58.235268}
   m_LocalScale: {x: 6.6218686, y: 15.421379, z: 6.353999}
   m_Children:
@@ -263,6 +279,7 @@ Transform:
   - {fileID: 4039585301967888}
   - {fileID: 4876765019756650}
   - {fileID: 4997485651326116}
+  - {fileID: 4932283353211368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0.24300002, z: 0}
@@ -372,6 +389,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4192469759202294}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4932283353211368
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971889669178182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4192469759202294}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4997485651326116
 Transform:
@@ -784,6 +814,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 70
   rotationSpeed: 110
+--- !u!114 &114302949856123842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971889669178182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abd2e7f8063f65459f84ed01f4b88fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveHS: {fileID: 0}
+  panel: {fileID: 0}
+  inputText: {fileID: 0}
+  highscoreCanvas: {fileID: 0}
 --- !u!114 &114308733678751616
 MonoBehaviour:
   m_ObjectHideFlags: 1

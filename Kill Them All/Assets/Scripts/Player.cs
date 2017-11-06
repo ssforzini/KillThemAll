@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     private Text txt;
     private Slider sl;
 
+	private HighscoreJson hsj;
+
     // Use this for initialization
     void Start () {
 		//rb = GetComponent<Rigidbody> ();
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour {
         txt = GameObject.Find("Score").GetComponent<Text>();
         sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
         txt.text = score.ToString();
+		hsj = GameObject.Find ("HighscorePlayer").GetComponent<HighscoreJson>();
     }
 	
 	// Update is called once per frame
@@ -46,13 +49,17 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if(col.gameObject.tag == "Enemies"){
+		if(col.gameObject.tag == "Enemies" && mr.enabled == true){
 			int enemyAtack = col.gameObject.GetComponent<Enemy>().getAtack();
             life -= enemyAtack;
             sl.value = life;
             if (life < 0) {
                 mr.enabled = false;
-				SceneManager.LoadScene ("Main Menu");
+				if(score > int.Parse(hsj.secondHighscoreArray[9,1])){
+					hsj.activateInputs (true,score);
+				} else {
+					SceneManager.LoadScene ("Main Menu");
+				}
             }
         }
 	}

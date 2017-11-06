@@ -6,21 +6,22 @@ public class MainMenu : MonoBehaviour {
 
 	public Button playButton;
 	public Button exitButton;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+	public Button highscoreButton;
 	
 	// Update is called once per frame
 	void Update () {
 		playButton.onClick.AddListener (PlayClick);
 		exitButton.onClick.AddListener (ExitClick);
+		highscoreButton.onClick.AddListener (HighscoreClick);
 			
 	}
 
 	void PlayClick(){
 		SceneManager.LoadScene ("Levels");
+	}
+
+	void HighscoreClick(){
+		SceneManager.LoadScene ("Highscore");
 	}
 
 	void ExitClick(){
