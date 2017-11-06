@@ -34,7 +34,7 @@ public class HighscoreJson : MonoBehaviour {
 			secondHighscoreArray [i,1] = firstHighscoreArray [i].Split ('|')[1];
 		}
 
-		if(SceneManager.GetActiveScene().name == "Highscore"){
+		if(SceneManager.GetActiveScene().name == "Main Menu"){
 			HighscoreTextFirst = GameObject.Find ("HighscoreText1").GetComponent<Text> ();
 			HighscoreTextSecond = GameObject.Find ("HighscoreText2").GetComponent<Text> ();
 
