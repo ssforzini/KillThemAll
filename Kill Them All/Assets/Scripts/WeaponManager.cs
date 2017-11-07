@@ -16,6 +16,8 @@ public class WeaponManager : MonoBehaviour {
 	private float fireVelocity;
     private GameObject actualPrefab;
 
+	[HideInInspector]
+	public bool deadPlayer = false;
 	private Text ammoText;
 
 	void Start(){
@@ -29,7 +31,9 @@ public class WeaponManager : MonoBehaviour {
 
 	void Update(){
 		weaponTime -= Time.deltaTime;
-		fire ();
+		if(!deadPlayer){
+			fire ();
+		}
 	}
 
 	public void fire(){

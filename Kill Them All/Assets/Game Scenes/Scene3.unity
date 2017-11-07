@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.4964122, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2419,7 +2419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 560735937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.4, y: 11.6, z: -18.9}
+  m_LocalPosition: {x: 16.4, y: 5.2, z: -18.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 301794231}
@@ -3623,7 +3623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4192469759202294, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.0021169719
+      value: -0.002116972
       objectReference: {fileID: 0}
     - target: {fileID: 4192469759202294, guid: c739ce74ee109884dac2d3d126568367, type: 2}
       propertyPath: m_LocalRotation.z
@@ -3637,6 +3637,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114302949856123842, guid: c739ce74ee109884dac2d3d126568367,
+        type: 2}
+      propertyPath: saveHS
+      value: 
+      objectReference: {fileID: 1168072854}
+    - target: {fileID: 114302949856123842, guid: c739ce74ee109884dac2d3d126568367,
+        type: 2}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1537737251}
+    - target: {fileID: 114302949856123842, guid: c739ce74ee109884dac2d3d126568367,
+        type: 2}
+      propertyPath: inputText
+      value: 
+      objectReference: {fileID: 995175000}
+    - target: {fileID: 114302949856123842, guid: c739ce74ee109884dac2d3d126568367,
+        type: 2}
+      propertyPath: highscoreCanvas
+      value: 
+      objectReference: {fileID: 1771693730}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c739ce74ee109884dac2d3d126568367, type: 2}
   m_IsPrefabParent: 0

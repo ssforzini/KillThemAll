@@ -16,11 +16,13 @@ public class Player : MonoBehaviour {
     private Slider sl;
 
 	private HighscoreJson hsj;
+	private WeaponManager wm;
 
     // Use this for initialization
     void Start () {
 		//rb = GetComponent<Rigidbody> ();
         mr = GetComponent<MeshRenderer>();
+		wm = GetComponent<WeaponManager> ();
         txt = GameObject.Find("Score").GetComponent<Text>();
         sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
         txt.text = score.ToString();
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour {
             sl.value = life;
             if (life < 0) {
                 mr.enabled = false;
+				wm.deadPlayer = true;
 				if(score > int.Parse(hsj.secondHighscoreArray[9,1])){
 					hsj.activateInputs (true,score);
 				} else {
