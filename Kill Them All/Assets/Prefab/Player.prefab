@@ -864,7 +864,8 @@ MonoBehaviour:
   fireVelocity: 0.3
   type: 0
   fireActive: 0
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 1282730121017668, guid: ddbdce0787900a542968831c79a911ab,
+    type: 2}
 --- !u!114 &114672055495085526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -881,7 +882,8 @@ MonoBehaviour:
   fireVelocity: 0.15
   type: 0
   fireActive: 0
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 1201823672913880, guid: a72600e0ffe8513468cfca10ded0e0a1,
+    type: 2}
 --- !u!114 &114701710635212266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,7 +900,8 @@ MonoBehaviour:
   fireVelocity: 0.2
   type: 1
   fireActive: 1
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 1719781024679534, guid: cff8d37facad3ea41a8223f7461b8b34,
+    type: 2}
 --- !u!124 &124122909704270422
 Behaviour:
   m_ObjectHideFlags: 1
