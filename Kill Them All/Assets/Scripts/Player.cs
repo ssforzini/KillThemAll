@@ -42,6 +42,10 @@ public class Player : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				SceneManager.LoadScene ("Main Menu");
 			}
+
+			if(Input.GetKeyDown(KeyCode.P)){
+				Time.timeScale = 0f;
+			}
         }
 
         if (life < 0) {

@@ -97,7 +97,7 @@ public class HighscoreJson : MonoBehaviour {
 
 	}
 
-	private string readFile(int type){
+	public string readFile(int type){
 		string value = "";
 		if (type == 1) {
 			value += "1) " + secondHighscoreArray[0,0] + " - " + secondHighscoreArray[0,1] + "\n";
