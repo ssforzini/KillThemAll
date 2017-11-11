@@ -16,6 +16,8 @@ public class WeaponManager : MonoBehaviour {
 	private float fireVelocity;
     private GameObject actualPrefab;
 
+	public ActualGunImages agi;
+
 	[HideInInspector]
 	public bool deadPlayer = false;
 	private Text ammoText;
@@ -27,6 +29,7 @@ public class WeaponManager : MonoBehaviour {
 			wpScrip [i] = weapons [i].gameObject.GetComponent<Weapon> ();
 		}
 		fireVelocity = wpScrip [activeWeapon].fireVelocity;
+		agi = GameObject.Find ("ActualGunImages").GetComponent<ActualGunImages> ();
 	}
 
 	void Update(){
@@ -72,6 +75,7 @@ public class WeaponManager : MonoBehaviour {
 
 	public void changeWeaponPrefab(){
 		for(int i = 0; i < weapons.Length; i++){
+			agi.activeGun = activeWeapon + 1;
 			if (i == activeWeapon) {
 				weapons [i].SetActive (true);
 			} else {

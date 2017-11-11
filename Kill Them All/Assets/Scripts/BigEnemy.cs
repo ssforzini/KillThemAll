@@ -9,7 +9,7 @@ public class BigEnemy : Enemy {
 		setLife (350);
 		setVelocity (30);
 		setDefense (0);
-		setAtack(30);
+		setAtack(20);
 		setSelfScore(100);
 	}
 }

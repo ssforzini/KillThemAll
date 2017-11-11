@@ -12,12 +12,18 @@ public class FloorExplosion : MonoBehaviour {
 	private float radius = 40.0f;
 	private float upForce = 100.0f;
 
+	private GameObject bt;
+
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
 
 		foreach (Transform t in transform) {
-			prc = t.gameObject;
+			if (t.gameObject.name == "ExplosionC4") {
+				prc = t.gameObject;
+			} else if(t.gameObject.name == "BombTime"){
+				bt = t.gameObject;
+			}
 		}
 	}
 	
@@ -28,7 +34,9 @@ public class FloorExplosion : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Enemies") {
-			Invoke ("Detonate",1);
+			bt.SetActive (true);
+			bt.GetComponent<BombTime>().bombActive = 1;
+			Invoke ("Detonate",3);
         }
     }
 

@@ -18,6 +18,8 @@ public class PauseWindowController : MonoBehaviour {
 
 		activeWindow = 1;
 		activeWindows (true,false,false);
+		Time.timeScale = 1;
+		pauseCanvas.SetActive (false);
 
 	}
 
