@@ -40,7 +40,7 @@ public class PauseWindowController : MonoBehaviour {
 				buttons [4].onClick.AddListener (PauseMenuClick);	
 				break;
 			case 3: //HIGHSCORE
-				buttons [5].onClick.AddListener (PauseMenuClick);	
+				buttons [5].onClick.AddListener (PauseMenuClick);
 				break;
 			}
 		}
