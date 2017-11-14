@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 		wm = GetComponent<WeaponManager> ();
         txt = GameObject.Find("Score").GetComponent<Text>();
         sl = GameObject.Find("PlayerLife").GetComponent<Slider>();
-        txt.text = score.ToString();
+		txt.text = "Puntaje: " + score.ToString();
 		hsj = GameObject.Find ("HighscorePlayer").GetComponent<HighscoreJson>();
     }
 	
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
 
     public void addScore(int _score) {
         score += _score;
-        txt.text = score.ToString();
+        txt.text = "Puntaje: " + score.ToString();
     }
 
 	public void winLife(int _life){

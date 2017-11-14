@@ -8,7 +8,11 @@ public class WindowController : MonoBehaviour {
 	public Button[] buttons;
 	private int activeWindow;
 
+	[HideInInspector]
+	public int selectedLevel;
+
 	void Start(){
+		selectedLevel = 0;
 		activeWindow = 1;
 		activeWindows (true,false,false,false,false);
 	}
@@ -72,15 +76,21 @@ public class WindowController : MonoBehaviour {
 	}
 
 	void FirstLevel(){ 
-		SceneManager.LoadScene ("Scene");
+		selectedLevel = 1;
+		activeWindows (false,false,false,false,false);
+		//SceneManager.LoadScene ("Scene");
 	}
 
 	void SecondLevel(){ 
-		SceneManager.LoadScene ("Scene2"); 
+		selectedLevel = 2;
+		activeWindows (false,false,false,false,false);
+		//SceneManager.LoadScene ("Scene2"); 
 	}
 
 	void ThirdLevel(){
-		SceneManager.LoadScene("Scene3");
+		selectedLevel = 3;
+		activeWindows (false,false,false,false,false);
+		//SceneManager.LoadScene("Scene3");
 	}
 
 	private void activeWindows(bool mainMenu, bool highscoreMenu, bool levelMenu,bool controlMenu, bool creditMenu){
