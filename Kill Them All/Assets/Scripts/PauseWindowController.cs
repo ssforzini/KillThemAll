@@ -26,7 +26,7 @@ public class PauseWindowController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Time.timeScale == 0f) {
-			if(!pauseCanvas.activeSelf){
+			if (!pauseCanvas.activeSelf) {
 				pauseCanvas.SetActive (true);
 			}
 			switch (activeWindow) {
@@ -43,6 +43,8 @@ public class PauseWindowController : MonoBehaviour {
 				buttons [5].onClick.AddListener (PauseMenuClick);
 				break;
 			}
+		} else {
+			pauseCanvas.SetActive (false);
 		}
 	}
 

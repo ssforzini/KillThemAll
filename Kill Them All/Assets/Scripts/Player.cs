@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	private HighscoreJson hsj;
 	private WeaponManager wm;
 
+	private bool pauseActive = false;
+
     // Use this for initialization
     void Start () {
 		//rb = GetComponent<Rigidbody> ();
@@ -44,7 +46,14 @@ public class Player : MonoBehaviour {
 			}
 
 			if(Input.GetKeyDown(KeyCode.P)){
-				Time.timeScale = 0f;
+				if (pauseActive) {
+					Time.timeScale = 1f;
+					pauseActive = false;
+				} else {
+					Time.timeScale = 0f;
+					pauseActive = true;
+				}
+
 			}
         }
 
