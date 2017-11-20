@@ -18,8 +18,7 @@ public class RespawnManager : MonoBehaviour {
 	public GameObject[] weaponGrab;
 
 	public GameObject[] weaponsPrefab;
-
-	private Text waveEnemiesText;
+	private Text waveCountText;
 
 	[HideInInspector]
 	public int enemyCount;
@@ -37,12 +36,10 @@ public class RespawnManager : MonoBehaviour {
             points.Add(go);
         }
 
-
         txt = GameObject.Find("Wave").GetComponent<Text>();
-		waveEnemiesText = GameObject.Find ("WaveEnemies").GetComponent<Text> ();
+		waveCountText = GameObject.Find ("WaveCount").GetComponent<Text> ();
 
         showWaveText();
-		showWaveEnemiesCount ();
         instantiateEnemies();
     }
 
@@ -54,6 +51,8 @@ public class RespawnManager : MonoBehaviour {
             txt.text = "";
         }
 
+		waveCountText.text = enemyCount.ToString();
+
 		if(enemyCount == 0){
 			wave++;
 			changeEnemyRest (wave);
@@ -61,7 +60,6 @@ public class RespawnManager : MonoBehaviour {
             showWaveText();
             instantiateEnemies ();
 		}
-		showWaveEnemiesCount ();
 	}
 
     public void instantiateEnemies() {
@@ -90,7 +88,7 @@ public class RespawnManager : MonoBehaviour {
 		enemyCount--;
 	}
 
-    private void showWaveText() {
+    public void showWaveText() {
         txt.text = "WAVE " + wave.ToString();
         timeText = 2f;
     }
@@ -114,9 +112,7 @@ public class RespawnManager : MonoBehaviour {
 			fastEnemyRest = 2;
 		break;
 		}
-	}
 
-	private void showWaveEnemiesCount(){
-		waveEnemiesText.text = enemyCount.ToString ();
+
 	}
 }

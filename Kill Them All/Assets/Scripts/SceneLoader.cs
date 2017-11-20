@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour {
 	[SerializeField]
 	private int scene;
 	private GameObject loadingText;
-	private WindowController wc;
+	private MainMenuWindowController wc;
 	private int alreadyLoad;
 
 	void Start(){
@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour {
 		if(loadingText != null){
 			loadingText.SetActive (false);	
 		}
-		wc = GameObject.Find ("MainMenuManager").GetComponent<WindowController> ();
+		wc = GameObject.Find ("MainMenuManager").GetComponent<MainMenuWindowController> ();
 	}
 
 	// Updates once per frame

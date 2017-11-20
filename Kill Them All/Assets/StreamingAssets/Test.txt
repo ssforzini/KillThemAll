@@ -1,1 +1,1 @@
-SEB|10000;LUC|5000;JUA|4000;seba_millo|3450;LUI|3000;TES|2200;Seba|1380;andate a l|1295;Prueba HS|420;agustin|360
+SEB|10000;LUC|5000;JUA|4000;seba_millo|3450;LUI|3000;TES|2200;Prueba HS|420;agustin|360;Sebita|135;Testeando3|120

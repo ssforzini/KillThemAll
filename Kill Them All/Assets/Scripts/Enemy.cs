@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour {
     private GameObject pl;
     private Player player;
 
+	public Slider enemyLifeSlider;
+
 	void Awake(){
 	}
 
@@ -27,6 +30,8 @@ public class Enemy : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent> ();
 		agent.speed = velocity;
 		agent.acceleration = velocity - 20f;
+		enemyLifeSlider.maxValue = life;
+		enemyLifeSlider.value = life;
 	}
 
 	// Update is called once per frame
@@ -49,8 +54,11 @@ public class Enemy : MonoBehaviour {
     public int getAtack() { return atack; }
     protected void setAtack(int _atack) { atack = _atack; }
 
-    public void takeLife(int damage){
+	public void takeLife(int damage){
+
+		enemyLifeSlider.value = enemyLifeSlider.value - damage;
 		life -= damage;
+
 		if(life <= 0){
             player.addScore(selfScore);
 			rm.enemyCountDecrease ();
