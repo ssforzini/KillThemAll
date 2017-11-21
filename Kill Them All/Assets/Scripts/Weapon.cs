@@ -18,5 +18,9 @@ public class Weapon : MonoBehaviour {
     public fType type;
     public Active fireActive;
     public GameObject weaponPrefab;
+	public AudioSource sound;
     
+	void Start(){
+		sound = GameObject.Find ("FireSound").GetComponent<AudioSource> ();
+	}
 }

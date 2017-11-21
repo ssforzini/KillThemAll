@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423216232533110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.4, y: 5, z: 12.245037}
+  m_LocalPosition: {x: -51.83137, y: 2.4546325, z: -66.36482}
   m_LocalScale: {x: 0.70374334, y: 0.3394145, z: 0.5016454}
   m_Children:
   - {fileID: 4648335935917260}
@@ -168,7 +168,9 @@ MonoBehaviour:
   fireVelocity: 0.15
   type: 0
   fireActive: 0
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 1201823672913880, guid: a72600e0ffe8513468cfca10ded0e0a1,
+    type: 2}
+  sound: {fileID: 0}
 --- !u!114 &114911992418544812
 MonoBehaviour:
   m_ObjectHideFlags: 1

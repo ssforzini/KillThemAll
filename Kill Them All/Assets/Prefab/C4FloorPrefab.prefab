@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114137871457498930}
   m_Layer: 0
   m_Name: BombTime
-  m_TagString: Untagged
+  m_TagString: CountC4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 114028831863183520}
   m_Layer: 0
   m_Name: ExplosionC4
-  m_TagString: Untagged
+  m_TagString: ParticleC4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840969792483644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.73644, y: 2.7053642, z: 19.287922}
+  m_LocalPosition: {x: -47.534103, y: 2.7053642, z: 23.521652}
   m_LocalScale: {x: 3.2234364, y: 0.5014633, z: 5.566804}
   m_Children:
   - {fileID: 4889642926916490}
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac1691131a8c844dafe8b6ace6a172a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 5
+  explosionForce: 2
 --- !u!198 &198104331148870314
 ParticleSystem:
   m_ObjectHideFlags: 1

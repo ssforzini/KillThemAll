@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	private HighscoreJson hsj;
 	private WeaponManager wm;
 
+	private float enemyStay = 2.5f;
+
 	private bool pauseActive = false;
 
     // Use this for initialization
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour {
             mr.enabled = false;
         }
 
+
 	}
 
 	void OnCollisionEnter(Collision col){
@@ -78,6 +81,25 @@ public class Player : MonoBehaviour {
 				}
             }
         }
+	}
+
+	void OnCollisionStay(Collision col){
+		enemyStay -= Time.deltaTime;
+		if(col.gameObject.tag == "Enemies" && mr.enabled == true && enemyStay <= 0f){
+			enemyStay = 2.5f;
+			int enemyAtack = col.gameObject.GetComponent<Enemy> ().getAtack () / 2;
+			life -= enemyAtack;
+			sl.value = life;
+			if (life < 0) {
+				mr.enabled = false;
+				wm.deadPlayer = true;
+				if(score > int.Parse(hsj.secondHighscoreArray[9,1])){
+					hsj.activateInputs (true,score);
+				} else {
+					SceneManager.LoadScene ("Main Menu");
+				}
+			}
+		}
 	}
 
     public void addScore(int _score) {

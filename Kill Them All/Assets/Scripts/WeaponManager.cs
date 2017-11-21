@@ -16,6 +16,8 @@ public class WeaponManager : MonoBehaviour {
 	private float fireVelocity;
     private GameObject actualPrefab;
 
+	private AudioSource sound;
+
 	public ActualGunImages agi;
 
 	[HideInInspector]
@@ -29,6 +31,7 @@ public class WeaponManager : MonoBehaviour {
 			wpScrip [i] = weapons [i].gameObject.GetComponent<Weapon> ();
 		}
 		fireVelocity = wpScrip [activeWeapon].fireVelocity;
+		sound = wpScrip [activeWeapon].sound;
 		agi = GameObject.Find ("ActualGunImages").GetComponent<ActualGunImages> ();
 	}
 
@@ -42,11 +45,12 @@ public class WeaponManager : MonoBehaviour {
 	public void fire(){
         if (Input.GetButtonDown ("Fire")) {
 			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 0) && weaponTime <= 0){
+				sound.Play ();
 				Instantiate (bullet, puntoSalida.position, puntoSalida.rotation);
 				loseAmmo ();
                 weaponTime = fireVelocity;
             }
-            if ((wpScrip[activeWeapon].type.ToString() == "floor" && activeWeapon == 2) && weaponTime <= 0) {
+			if ((wpScrip[activeWeapon].type.ToString() == "floor" && activeWeapon == 2) && weaponTime <= 0) {
                 Instantiate(actualPrefab, floorSalida.position, floorSalida.rotation);
                 weaponTime = fireVelocity;
                 loseAmmo();
@@ -55,6 +59,7 @@ public class WeaponManager : MonoBehaviour {
 
 		if (Input.GetButton("Fire")) {
 			if((wpScrip[activeWeapon].type.ToString() == "single" && activeWeapon == 1) && weaponTime <= 0){
+				sound.Play ();
 				Instantiate(bullet, puntoSalida.position, puntoSalida.rotation);
 				loseAmmo ();
                 weaponTime = fireVelocity;
@@ -88,6 +93,8 @@ public class WeaponManager : MonoBehaviour {
 		actualAmmo = wp.ammo;
 		fireVelocity = wp.fireVelocity;
         actualPrefab = wp.weaponPrefab;
+		sound = wp.sound;
+
         if ((int)wp.infiniteAmmo == 0) {
 			isInfiniteAmmo = true;
 		} else {

@@ -7,7 +7,7 @@ public class FastEnemy : Enemy {
 		setLife (25);
 		setVelocity (100);
 		setDefense (0);
-		setAtack(5);
+		setAtack(6);
 		setSelfScore(20);
 	}
 }

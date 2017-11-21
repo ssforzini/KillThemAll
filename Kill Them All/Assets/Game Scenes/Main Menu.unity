@@ -1150,7 +1150,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n<b>Programming / Game Design:</b> Sebasti\xE1n Sforzini"
+  m_Text: "\n<b>Programming / Game Design by Sebasti\xE1n Sforzini</b>\n\n<b>Music
+    by Eric Matyas\r\r</b>\nwww.soundimage.org\n\n<b>3d Models by Kenney</b>\nhttp://kenney.nl/"
 --- !u!222 &1025041547
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2453,10 +2454,10 @@ RectTransform:
   m_Father: {fileID: 1926743902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.185, y: 0.76826996}
-  m_AnchorMax: {x: 0.63759106, y: 0.89446914}
-  m_AnchoredPosition: {x: 1, y: 0.5}
-  m_SizeDelta: {x: -1.36203, y: -3.938263}
+  m_AnchorMin: {x: 0.27641258, y: 0.7774583}
+  m_AnchorMax: {x: 0.7302063, y: 0.89446914}
+  m_AnchoredPosition: {x: -0.5379982, y: 0.53089905}
+  m_SizeDelta: {x: -2.36203, y: -0.93826294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936675184
 MonoBehaviour:

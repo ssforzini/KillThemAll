@@ -25,6 +25,8 @@ public class RespawnManager : MonoBehaviour {
     private Text txt;
     private float timeText = 0f;
 
+	private AudioSource nextWaveSound;
+
 	private int fastEnemyWaveAppearence = 5;
 	private int fastEnemyRest = 7;
 	private int bigEnemyWaveAppearence = 20;	private int bigEnemyRest = 9;
@@ -38,6 +40,7 @@ public class RespawnManager : MonoBehaviour {
 
         txt = GameObject.Find("Wave").GetComponent<Text>();
 		waveCountText = GameObject.Find ("WaveCount").GetComponent<Text> ();
+		nextWaveSound = GameObject.Find ("NextWave").GetComponent<AudioSource> ();
 
         showWaveText();
         instantiateEnemies();
@@ -54,6 +57,7 @@ public class RespawnManager : MonoBehaviour {
 		waveCountText.text = enemyCount.ToString();
 
 		if(enemyCount == 0){
+			nextWaveSound.Play ();
 			wave++;
 			changeEnemyRest (wave);
 			addingEnemies += 2;

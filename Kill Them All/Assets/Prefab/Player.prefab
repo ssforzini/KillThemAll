@@ -874,8 +874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3674b51011e409d45a7dfa267b5376b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 70
-  rotationSpeed: 110
+  movementSpeed: 90
+  rotationSpeed: 130
 --- !u!114 &114302949856123842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -940,6 +940,7 @@ MonoBehaviour:
   fireActive: 0
   weaponPrefab: {fileID: 1282730121017668, guid: ddbdce0787900a542968831c79a911ab,
     type: 2}
+  sound: {fileID: 0}
 --- !u!114 &114672055495085526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -958,6 +959,7 @@ MonoBehaviour:
   fireActive: 0
   weaponPrefab: {fileID: 1201823672913880, guid: a72600e0ffe8513468cfca10ded0e0a1,
     type: 2}
+  sound: {fileID: 0}
 --- !u!114 &114701710635212266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +978,7 @@ MonoBehaviour:
   fireActive: 1
   weaponPrefab: {fileID: 1719781024679534, guid: cff8d37facad3ea41a8223f7461b8b34,
     type: 2}
+  sound: {fileID: 0}
 --- !u!114 &114906461057157754
 MonoBehaviour:
   m_ObjectHideFlags: 1

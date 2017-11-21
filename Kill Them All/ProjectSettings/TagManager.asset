@@ -9,6 +9,8 @@ TagManager:
   - WeaponGrab
   - Fire
   - C4Explosion
+  - ParticleC4
+  - CountC4
   layers:
   - Default
   - TransparentFX
