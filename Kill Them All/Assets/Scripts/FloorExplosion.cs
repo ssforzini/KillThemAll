@@ -37,8 +37,8 @@ public class FloorExplosion : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter(Collider col) {
-		if (col.gameObject.tag == "Enemies" && active == 0) {
+	void OnTriggerEnter(Collider col) {
+		if (col.gameObject.tag == "EnemiesPart" && active == 0) {
 			bt.SetActive (true);
 			bt.GetComponent<BombTime>().bombActive = 1;
 			Invoke ("Detonate",3);

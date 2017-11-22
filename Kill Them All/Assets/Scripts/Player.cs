@@ -66,8 +66,8 @@ public class Player : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter(Collision col){
-		if(col.gameObject.tag == "Enemies" && mr.enabled == true){
+	/*void OnCollisionEnter(Collision col){
+		if((col.gameObject.tag == "Enemies") && mr.enabled == true){
 			int enemyAtack = col.gameObject.GetComponent<Enemy>().getAtack();
             life -= enemyAtack;
             sl.value = life;
@@ -81,11 +81,11 @@ public class Player : MonoBehaviour {
 				}
             }
         }
-	}
+	}*/
 
 	void OnCollisionStay(Collision col){
 		enemyStay -= Time.deltaTime;
-		if(col.gameObject.tag == "Enemies" && mr.enabled == true && enemyStay <= 0f){
+		if((col.gameObject.tag == "Enemies") && mr.enabled == true && enemyStay <= 0f){
 			enemyStay = 2.5f;
 			int enemyAtack = col.gameObject.GetComponent<Enemy> ().getAtack () / 2;
 			life -= enemyAtack;

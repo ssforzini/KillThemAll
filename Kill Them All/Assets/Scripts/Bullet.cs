@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour {
 	public float fuerza;
 	public int damage;
 	private Rigidbody rb;
+	private int hitEnemy = 0;
 
 	void Awake(){
 		rb = GetComponent<Rigidbody> ();
@@ -19,7 +20,8 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if(col.gameObject.tag == "Enemies"){
+		if(col.gameObject.tag == "Enemies" && hitEnemy == 0){
+			hitEnemy = 1;
 			col.gameObject.GetComponent<Enemy> ().takeLife (damage);
 		}
 		Destroy (gameObject);

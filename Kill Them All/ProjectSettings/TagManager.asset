@@ -11,6 +11,8 @@ TagManager:
   - C4Explosion
   - ParticleC4
   - CountC4
+  - EnemiesPart
+  - EnemiesHands
   layers:
   - Default
   - TransparentFX
