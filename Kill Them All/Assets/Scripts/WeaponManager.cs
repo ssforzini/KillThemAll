@@ -4,12 +4,14 @@ using UnityEngine.UI;
 public class WeaponManager : MonoBehaviour {
 	private int activeWeapon = 0;
 	public GameObject[] weapons;
-	private Weapon[] wpScrip = {null,null,null};
+	private Weapon[] wpScrip = {null,null,null,null};
 	private float weaponTime = 0;
 
 	public GameObject bullet;
+	public GameObject rifleBullet;
 	public Transform puntoSalida;
-    public Transform floorSalida;
+	public Transform floorSalida;
+	public Transform RifleSalida;
 
 	private int actualAmmo = 0;
 	private bool isInfiniteAmmo = true;
@@ -18,13 +20,14 @@ public class WeaponManager : MonoBehaviour {
 
 	private AudioSource sound;
 
-	public ActualGunImages agi;
+	private ActualGunImages agi;
 
 	[HideInInspector]
 	public bool deadPlayer = false;
 	private Text ammoText;
 
 	void Start(){
+		agi = GameObject.Find ("ActualGunImages").GetComponent<ActualGunImages>();
 		ammoText = GameObject.Find ("Ammo").GetComponent<Text> ();
 		updateAmmoText ();
 		for(int i = 0; i < weapons.Length; i++){
@@ -55,6 +58,13 @@ public class WeaponManager : MonoBehaviour {
                 weaponTime = fireVelocity;
                 loseAmmo();
             }
+
+			if ((wpScrip[activeWeapon].type.ToString() == "rifle" && activeWeapon == 3) && weaponTime <= 0) {
+				sound.Play ();
+				Instantiate(rifleBullet, RifleSalida.position, RifleSalida.rotation);
+				weaponTime = fireVelocity;
+				loseAmmo();
+			}
         } 
 
 		if (Input.GetButton("Fire")) {
@@ -70,7 +80,7 @@ public class WeaponManager : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		
 		if(col.gameObject.tag == "Weapon"){
-			activeWeapon = col.gameObject.GetComponent<WeaponGrab> ().getWType ();	
+			activeWeapon = col.gameObject.GetComponent<WeaponGrab> ().getWType ();
 			changeWeaponStats (col.gameObject.GetComponent<Weapon> ());
 			changeWeaponPrefab ();
 			Destroy (col.gameObject);

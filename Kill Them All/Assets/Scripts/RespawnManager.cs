@@ -14,7 +14,6 @@ public class RespawnManager : MonoBehaviour {
 	public GameObject prefabFastEnemy;
 	public GameObject prefabBigEnemy;
 	public GameObject medicBoxPrefab;
-	public GameObject[] medicBoxes;
 	public GameObject[] weaponGrab;
 
 	public GameObject[] weaponsPrefab;
@@ -24,6 +23,8 @@ public class RespawnManager : MonoBehaviour {
 	public int enemyCount;
     private Text txt;
     private float timeText = 0f;
+
+	private float objectAppearence = 35f;
 
 	private AudioSource nextWaveSound;
 
@@ -42,7 +43,8 @@ public class RespawnManager : MonoBehaviour {
 		waveCountText = GameObject.Find ("WaveCount").GetComponent<Text> ();
 		nextWaveSound = GameObject.Find ("NextWave").GetComponent<AudioSource> ();
 
-        showWaveText();
+		showWaveText();
+		instantiateObjects ();
         instantiateEnemies();
     }
 
@@ -54,6 +56,13 @@ public class RespawnManager : MonoBehaviour {
             txt.text = "";
         }
 
+		if (objectAppearence > 0f) {
+			objectAppearence -= Time.deltaTime;
+		} else {
+			instantiateObjects ();
+			objectAppearence = 35f;
+		}
+
 		waveCountText.text = enemyCount.ToString();
 
 		if(enemyCount == 0){
@@ -62,18 +71,13 @@ public class RespawnManager : MonoBehaviour {
 			changeEnemyRest (wave);
 			addingEnemies += 2;
             showWaveText();
+			instantiateObjects ();
             instantiateEnemies ();
 		}
 	}
 
     public void instantiateEnemies() {
-		if (wave % 2 == 0) {
-			GameObject medicBoxesPoint = medicBoxes [Random.Range (0, medicBoxes.Length)];
-			Instantiate (medicBoxPrefab, medicBoxesPoint.transform.position, medicBoxesPoint.transform.rotation);
-		} else {
-			GameObject weaponGrabPoint = weaponGrab [Random.Range (0, weaponGrab.Length)];
-			Instantiate (weaponsPrefab[Random.Range(0,weaponsPrefab.Length)], weaponGrabPoint.transform.position, weaponGrabPoint.transform.rotation);
-		}
+		
 		enemyCount = initialEnemies + addingEnemies;
         for (int f = 0; f < (initialEnemies + addingEnemies); f++) {
             spawnPoint = points[Random.Range(0, points.Count)];
@@ -116,7 +120,10 @@ public class RespawnManager : MonoBehaviour {
 			fastEnemyRest = 2;
 		break;
 		}
+	}
 
-
+	public void instantiateObjects(){
+		GameObject weaponGrabPoint = weaponGrab [Random.Range (0, weaponGrab.Length)];
+		Instantiate (weaponsPrefab[Random.Range(0,weaponsPrefab.Length)], weaponGrabPoint.transform.position, weaponGrabPoint.transform.rotation);
 	}
 }

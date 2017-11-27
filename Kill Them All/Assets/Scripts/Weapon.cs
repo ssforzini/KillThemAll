@@ -2,7 +2,7 @@
 
 public enum fType
 {
-    single,floor,multiple,fire,ball
+    single,floor,multiple,fire,ball,rifle
 }
 
 public enum Active
@@ -18,9 +18,15 @@ public class Weapon : MonoBehaviour {
     public fType type;
     public Active fireActive;
     public GameObject weaponPrefab;
+	[HideInInspector]
 	public AudioSource sound;
     
 	void Start(){
-		sound = GameObject.Find ("FireSound").GetComponent<AudioSource> ();
+		if((int)type == 1){
+			sound = GameObject.Find ("ExplosionSound").GetComponent<AudioSource> ();
+		} else {
+			sound = GameObject.Find ("FireSound").GetComponent<AudioSource> ();
+		}
+
 	}
 }

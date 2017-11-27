@@ -2,7 +2,7 @@
 
 public enum wType
 {
-	gun,uzi,c4
+	gun,uzi,c4,rifle
 }
 
 public class WeaponGrab : MonoBehaviour {

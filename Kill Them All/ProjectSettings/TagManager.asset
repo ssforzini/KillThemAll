@@ -13,6 +13,7 @@ TagManager:
   - CountC4
   - EnemiesPart
   - EnemiesHands
+  - Walls
   layers:
   - Default
   - TransparentFX

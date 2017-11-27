@@ -9,6 +9,7 @@ public class ActualGunImages : MonoBehaviour {
 	private GameObject gunImage;
 	private GameObject uziImage;
 	private GameObject bombImage;
+	private GameObject rifleImage;
 
 
 	// Use this for initialization
@@ -18,6 +19,7 @@ public class ActualGunImages : MonoBehaviour {
 		gunImage = GameObject.Find("GunImage");
 		uziImage = GameObject.Find("UziImage");
 		bombImage = GameObject.Find("C4Image");
+		rifleImage = GameObject.Find("RifleImage");
 
 		activeWeapons();
 	}
@@ -33,16 +35,25 @@ public class ActualGunImages : MonoBehaviour {
 			gunImage.SetActive (true);
 			uziImage.SetActive (false);
 			bombImage.SetActive (false);
+			rifleImage.SetActive (false);
 			break;
 		case 2:
 			gunImage.SetActive (false);
 			uziImage.SetActive (true);
 			bombImage.SetActive (false);
+			rifleImage.SetActive (false);
 			break;
 		case 3:
 			gunImage.SetActive (false);
 			uziImage.SetActive (false);
 			bombImage.SetActive (true);
+			rifleImage.SetActive (false);
+			break;
+		case 4:
+			gunImage.SetActive (false);
+			uziImage.SetActive (false);
+			bombImage.SetActive (false);
+			rifleImage.SetActive (true);
 			break;
 		}
 	}
