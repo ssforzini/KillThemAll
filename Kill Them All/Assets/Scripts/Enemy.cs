@@ -13,17 +13,12 @@ public class Enemy : MonoBehaviour {
     private int selfScore;
 	private NavMeshAgent agent;
 	private Transform target;
-	private RespawnManager rm;
     private GameObject pl;
     private Player player;
 
 	public Slider enemyLifeSlider;
 
-	void Awake(){
-	}
-
 	void Start(){
-		rm = GameObject.Find("RespawnManager").GetComponent<RespawnManager> ();
         pl = GameObject.Find("Player");
         player = pl.GetComponent<Player>();
         target = pl.transform;
@@ -55,13 +50,11 @@ public class Enemy : MonoBehaviour {
     protected void setAtack(int _atack) { atack = _atack; }
 
 	public void takeLife(int damage){
-
 		enemyLifeSlider.value = enemyLifeSlider.value - damage;
 		life -= damage;
 
 		if(life <= 0){
-            player.addScore(selfScore);
-			rm.enemyCountDecrease ();
+			player.addScore(selfScore);
 			Destroy (gameObject);
 		}
 	}

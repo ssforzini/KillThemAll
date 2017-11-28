@@ -24,7 +24,7 @@ public class RespawnManager : MonoBehaviour {
     private Text txt;
     private float timeText = 0f;
 
-	private float objectAppearence = 35f;
+	private float objectAppearence = 30f;
 
 	private AudioSource nextWaveSound;
 
@@ -50,6 +50,7 @@ public class RespawnManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+		enemyCountDecrease ();
         if(timeText > 0f) {
             timeText -= Time.deltaTime;
         } else {
@@ -60,7 +61,7 @@ public class RespawnManager : MonoBehaviour {
 			objectAppearence -= Time.deltaTime;
 		} else {
 			instantiateObjects ();
-			objectAppearence = 35f;
+			objectAppearence = 30f;
 		}
 
 		waveCountText.text = enemyCount.ToString();
@@ -93,7 +94,7 @@ public class RespawnManager : MonoBehaviour {
     }
 
 	public void enemyCountDecrease(){
-		enemyCount--;
+		enemyCount = GameObject.FindGameObjectsWithTag("Enemies").Length;
 	}
 
     public void showWaveText() {

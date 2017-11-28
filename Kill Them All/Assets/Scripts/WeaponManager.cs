@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class WeaponManager : MonoBehaviour {
 	private int activeWeapon = 0;
 	public GameObject[] weapons;
-	private Weapon[] wpScrip = {null,null,null,null};
+	private Weapon[] wpScrip = {null,null,null,null,null};
 	private float weaponTime = 0;
 
 	public GameObject bullet;
@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour {
 	public Transform puntoSalida;
 	public Transform floorSalida;
 	public Transform RifleSalida;
+
+	public Transform[] ShotgunSalida;
 
 	private int actualAmmo = 0;
 	private bool isInfiniteAmmo = true;
@@ -62,6 +64,15 @@ public class WeaponManager : MonoBehaviour {
 			if ((wpScrip[activeWeapon].type.ToString() == "rifle" && activeWeapon == 3) && weaponTime <= 0) {
 				sound.Play ();
 				Instantiate(rifleBullet, RifleSalida.position, RifleSalida.rotation);
+				weaponTime = fireVelocity;
+				loseAmmo();
+			}
+
+			if((wpScrip[activeWeapon].type.ToString() == "multiple" && activeWeapon == 4) && weaponTime <= 0){
+				sound.Play ();
+				for(int i = 0; i < ShotgunSalida.Length; i++){
+					Instantiate(bullet, ShotgunSalida[i].position, ShotgunSalida[i].rotation);
+				}
 				weaponTime = fireVelocity;
 				loseAmmo();
 			}

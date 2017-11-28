@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour {
 	[HideInInspector]
 	public AudioSource sound;
     
-	void Start(){
+	void Awake(){
 		if((int)type == 1){
 			sound = GameObject.Find ("ExplosionSound").GetComponent<AudioSource> ();
 		} else {
