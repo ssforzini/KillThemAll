@@ -286,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993061504382810}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.69608, y: 2.4546325, z: -5.4739876}
+  m_LocalPosition: {x: 45.91412, y: 2.4546325, z: -5.92552}
   m_LocalScale: {x: 1.2712656, y: 1.2712653, z: 1.2712653}
   m_Children:
   - {fileID: 224457751531912120}
@@ -774,8 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee141969a9b1b6b4aa06c5b184c0ba7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLifeSlider: {fileID: 114981056751304332, guid: 8473cf7158f78ab4488455912fd03ac9,
-    type: 2}
+  enemyLifeSlider: {fileID: 114387061812017986}
 --- !u!114 &114833704225960338
 MonoBehaviour:
   m_ObjectHideFlags: 1
